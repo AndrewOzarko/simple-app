@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('users', 'App\Http\Controllers\Api\User\Controller@getAllUsers');
+Route::get('users/{id}', 'App\Http\Controllers\Api\User\Controller@getUserById');
+Route::post('users', 'App\Http\Controllers\Api\User\Controller@createUser');
+
+Route::post('gifts', 'App\Http\Controllers\Api\Gift\Controller@createGift');
+Route::delete('gifts/{id}', 'App\Http\Controllers\Api\Gift\Controller@deleteGiftById');
+
+
+
